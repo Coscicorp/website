@@ -4,5 +4,5 @@ before_script:
 build_image:
   script:
     - docker build -t my-docker-image .
-    - docker login git.uclllabs.be:5050
+    - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD git.uclllabs.be:5050
     
