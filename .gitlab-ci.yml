@@ -1,8 +1,4 @@
-before_script:
-  - docker info
-
 build_image:
   script:
-    - docker build -t my-docker-image .
-    - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD git.uclllabs.be:5050
+    - export
     
