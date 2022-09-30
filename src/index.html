@@ -277,7 +277,7 @@
             </div>
             
             <div class="col-sm-12 col-md-6">
-              <form action="" method="get">
+              <form onsubmit="redirectToYoutube()">
                 <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required />
                 <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
                 <textarea id="message" name="message" rows="8" placeholder="Message" class="tm-input" required></textarea>
@@ -339,7 +339,10 @@
     <script src="js/jquery.singlePageNav.min.js"></script>     
     <script src="js/bootstrap.min.js"></script> 
     <script>
-
+      function redirectToYoutube() {
+        const url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        location.replace(url)
+      }
       function getOffSet(){
         var _offset = 450;
         var windowHeight = window.innerHeight;
