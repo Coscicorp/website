@@ -15,6 +15,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag coscicorp/website:latest
   publish:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       -
@@ -36,6 +37,7 @@ jobs:
           tags: ghcr.io/coscicorp/website
           labels: latest
   deploy:
+    needs: publish
     runs-on: ubuntu-latest
     steps:
       - name: Fast Webhook
