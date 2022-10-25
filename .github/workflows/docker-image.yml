@@ -41,6 +41,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fast Webhook
-        uses: jasongitmail/fast-webhook@v1.1.4
-        with:
-          url: http://cosci.be:9000/api/webhooks/5dc429ef-63f4-4e8d-89be-c47fd408d2cd
+        run: http://cosci.be:9000/api/webhooks/5dc429ef-63f4-4e8d-89be-c47fd408d2cd
