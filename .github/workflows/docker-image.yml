@@ -37,8 +37,18 @@ jobs:
           tags: ghcr.io/coscicorp/website
           labels: latest
   deploy:
-    needs: publish
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      - name: Trigger deployment to Portainer
-        run: curl -X POST http://cosci.be:9000/api/webhooks/9b026890-6ad2-46d6-9040-2c508a2a8708
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Pull from GitHub package
+      run: docker pull ghcr.io/coscicorp/website:latest
+    - name: Re-tag image
+      run: docker tag ghcr.io/coscicorp/website:latest registry.projectweek.be/cosciweb:latest
+    - name: Docker Push
+      run: docker push registry.projectweek.be/cosciweb:latest
