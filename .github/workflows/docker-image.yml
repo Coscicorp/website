@@ -52,3 +52,8 @@ jobs:
       run: docker tag ghcr.io/coscicorp/website:latest registry.projectweek.be/cosciweb:latest
     - name: Docker Push
       run: docker push registry.projectweek.be/cosciweb:latest
+
+    - name: Run chart-releaser
+      uses: helm/chart-releaser-action@v1.1.0
+      env:
+        CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
