@@ -1,2 +1,2 @@
-FROM nginx:latest
-RUN cp -r src/. /usr/share/nginx/html
+FROM nginxinc/nginx-unprivileged 
+COPY src/ /usr/share/nginx/html
